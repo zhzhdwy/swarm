@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="700ff242-4171-4974-8661-9f38d0c84f82" name="test">
+        <fileTransfer rootFolder="/bee" accessType="SFTP" host="192.168.0.41" port="22" sshConfigId="88fd52be-8733-4bbf-b68a-0ef80602bc62" sshConfig="root@192.168.0.41:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="45d35433-2788-4dc2-abfe-d40135434784" name="sz">
+        <fileTransfer rootFolder="/bee" accessType="SFTP" host="120.197.101.210" port="22" sshConfigId="6c08d1e8-b0b6-429d-b4a4-bb8430166c9b" sshConfig="root@120.197.101.210:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

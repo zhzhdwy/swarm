@@ -175,10 +175,10 @@ iconfig)
   ;;
 address)
   node_start $2
-  start=$?
+  s=$?
   node_end $3
-  end=$?
-  for ((i = $start; i < $(($end + 1)); i++)); do
+  e=$?
+  for ((i = $s; i < $(($e + 1)); i++)); do
     close $i
     start $i
   done
@@ -194,32 +194,32 @@ address)
   ;;
 restart)
   node_start $2
-  start=$?
+  s=$?
   node_end $3
-  end=$?
-  for ((i = $start; i < $(($end + 1)); i++)); do
+  e=$?
+  for ((i = $s; i < $(($e + 1)); i++)); do
     close $i
     start $i
   done
   ;;
 stop)
   node_start $2
-  start=$?
+  s=$?
   node_end $3
-  end=$?
-  for ((i = $start; i < $(($end + 1)); i++)); do
+  e=$?
+  for ((i = $s; i < $(($e + 1)); i++)); do
     close $i
   done
   ;;
 show)
   if [ -z $2 ]; then
-    start=0
-    end=$(cat ${root}/${nodesfile})
+    s=0
+    e=$(cat ${root}/${nodesfile})
   else
-    start=$2
-    end=$(($2 + 1))
+    s=$2
+    e=$(($2 + 1))
   fi
-  for ((i = $start; i < $end; i++)); do
+  for ((i = $s; i < $e; i++)); do
     dip=$(cat ${root}/node${i}/config.yaml | grep 'debug-api-addr' | awk '{print $2}')
     address=$(curl -s ${dip}/addresses | jq .ethereum)
     chequebook=$(curl -s ${dip}/chequebook/address | jq .chequebookAddress)
