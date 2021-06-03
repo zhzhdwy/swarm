@@ -223,8 +223,8 @@ show)
     dip=$(cat ${root}/node${i}/config.yaml | grep 'debug-api-addr' | awk '{print $2}')
     address=$(curl -s ${dip}/addresses | jq .ethereum)
     chequebook=$(curl -s ${dip}/chequebook/address | jq .chequebookAddress)
-    peers=$(curl -s http://localhost:1635/peers | jq '.peers | length')
-    cheque=`curl -s http://localhost:1635/chequebook/cheque | jq .lastcheques`
+    peers=$(curl -s http://${dip}/peers | jq '.peers | length')
+    cheque=`curl -s http://${dip}/chequebook/cheque | jq .lastcheques`
     echo "节点${i}的合约地址: $address, 钱包地址: $chequebook, peer数量: ${peers}, 支票: ${cheque} "
   done
   ;;
